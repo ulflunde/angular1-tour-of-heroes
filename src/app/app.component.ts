@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
+import { Vessel } from './vessel';
 
-const HEROES: Hero[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+const FLEET: Vessel[] = [
+  { imoNumber: 9155303, name: 'Merlin Arrow' },
+  { imoNumber: 9182485, name: 'Stove Campbell' },
+  { imoNumber: 9164184, name: 'Berge Atlantic' },
+  { imoNumber: 9214147, name: 'Barcarena' },
+  { imoNumber: 9228057, name: 'Bangor' },
+  { imoNumber: 9223980, name: 'Tamarita' },
+  { imoNumber: 9223992, name: 'Fermita' },
+  { imoNumber: 9335020, name: 'Serpentine' },
+  { imoNumber: 9734991, name: 'Spar Indus' },
+  { imoNumber: 9585285, name: 'MSC Divina' }
 ];
-
-export class Hero {
-  id: number;
-  name: string;
-}
 
 @Component({
   selector: 'my-app',
@@ -26,17 +22,10 @@ export class Hero {
 <h2>My Vessels</h2>
 <ul class="heroes">
 <li *ngFor="let vessel of heroes" [class.selected]="vessel === selectedHero" (click)="onSelect(vessel)">
-    <span class="badge">{{vessel.id}}</span> {{vessel.name}}
+    <span class="badge">{{vessel.imoNumber}}</span> {{vessel.name}}
 </li>
 </ul>
-<div *ngIf="selectedHero">
-<h2>{{selectedHero.name}} details</h2>
-<div><label>id: </label>{{selectedHero.id}}</div>
-<div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-</div>
-</div>
+<my-vessel-detail [vessel]="selectedHero"></my-vessel-detail>
   `,
 
   styles: [`
@@ -91,11 +80,11 @@ export class Hero {
 })
 
 export class AppComponent {
-  onSelect(hero: Hero): void {
+  onSelect(hero: Vessel): void {
     this.selectedHero = hero;
   }
 
   title = 'List of Vessels';
-  selectedHero: Hero;
-  heroes = HEROES;
+  selectedHero: Vessel;
+  heroes = FLEET;
 }

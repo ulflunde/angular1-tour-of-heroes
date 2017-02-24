@@ -8,29 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Created by E214595 on 24.02.2017.
+ */
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var app_component_1 = require('./app.component');
-var vessel_detail_component_1 = require('./vessel-detail.component');
-var AppModule = (function () {
-    function AppModule() {
+var vessel_1 = require('./vessel');
+var VesselDetailComponent = (function () {
+    function VesselDetailComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule
-            ],
-            declarations: [
-                app_component_1.AppComponent,
-                vessel_detail_component_1.VesselDetailComponent
-            ],
-            bootstrap: [app_component_1.AppComponent]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', vessel_1.Vessel)
+    ], VesselDetailComponent.prototype, "vessel", void 0);
+    VesselDetailComponent = __decorate([
+        core_1.Component({
+            selector: 'my-vessel-detail',
+            template: "\n<div *ngIf=\"vessel\">\n  <h2>{{vessel.name}} details</h2>\n<div><label>id: </label>{{vessel.id}}</div>\n<div>\n  <label>name: </label>\n<input [(ngModel)]=\"vessel.name\" placeholder=\"name\"/>\n  </div>\n  </div>"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], VesselDetailComponent);
+    return VesselDetailComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.VesselDetailComponent = VesselDetailComponent;
+//# sourceMappingURL=vessel-detail.component.js.map
