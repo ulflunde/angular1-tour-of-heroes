@@ -14,7 +14,9 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var vessel_detail_component_1 = require('./vessel-detail.component');
 var fleet_component_1 = require('./fleet.component');
+var dashboard_component_1 = require('./dashboard.component');
 var vessel_service_1 = require('./vessel.service');
+var router_1 = require('@angular/router');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,10 +24,26 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: '',
+                        redirectTo: '/dashboard',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: 'dashboard',
+                        component: dashboard_component_1.DashboardComponent
+                    },
+                    {
+                        path: 'fleet',
+                        component: fleet_component_1.FleetComponent
+                    }
+                ])
             ],
             declarations: [
                 app_component_1.AppComponent,
+                dashboard_component_1.DashboardComponent,
                 vessel_detail_component_1.VesselDetailComponent,
                 fleet_component_1.FleetComponent
             ],
