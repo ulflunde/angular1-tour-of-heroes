@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var vessel_detail_component_1 = require('./vessel-detail.component');
+var fleet_component_1 = require('./fleet.component');
+var vessel_service_1 = require('./vessel.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,8 +26,10 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                vessel_detail_component_1.VesselDetailComponent
+                vessel_detail_component_1.VesselDetailComponent,
+                fleet_component_1.FleetComponent
             ],
+            providers: [vessel_service_1.VesselService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

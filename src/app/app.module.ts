@@ -2,8 +2,10 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
-import { AppComponent }  from './app.component';
+import { AppComponent }          from './app.component';
 import { VesselDetailComponent } from './vessel-detail.component';
+import { FleetComponent }        from './fleet.component';
+import { VesselService }         from './vessel.service';
 
 @NgModule({
   imports: [
@@ -12,8 +14,10 @@ import { VesselDetailComponent } from './vessel-detail.component';
   ],
   declarations: [
     AppComponent,
-    VesselDetailComponent
+    VesselDetailComponent,
+    FleetComponent
   ],
-  bootstrap:    [ AppComponent ]
+  providers: [ VesselService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
