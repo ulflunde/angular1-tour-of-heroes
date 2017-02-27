@@ -8,32 +8,14 @@ import { FleetComponent }        from './fleet.component';
 import { DashboardComponent }    from './dashboard.component';
 import { VesselService }         from './vessel.service';
 
-import { RouterModule }   from '@angular/router';
+import { AppRoutingModule }     from './app-routing.module';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'fleet',
-        component: FleetComponent
-      },
-      {
-        path: 'detail/:imoNumber',
-        component: VesselDetailComponent
-      }
-    ])
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
