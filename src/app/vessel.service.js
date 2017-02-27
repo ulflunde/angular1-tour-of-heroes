@@ -26,6 +26,10 @@ var VesselService = (function () {
             setTimeout(function () { return resolve(_this.getShips()); }, 5000);
         });
     };
+    VesselService.prototype.getHero = function (id) {
+        return this.getShips()
+            .then(function (arrayelements) { return arrayelements.find(function (hero) { return hero.imoNumber === id; }); });
+    };
     VesselService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

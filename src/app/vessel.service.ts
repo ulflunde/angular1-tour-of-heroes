@@ -19,4 +19,9 @@ export class VesselService {
     });
   }
 
+  getHero(id: number): Promise<Vessel> {
+    return this.getShips()
+      .then(arrayelements => arrayelements.find(hero => hero.imoNumber === id));
+  }
+
 }
