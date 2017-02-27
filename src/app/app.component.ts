@@ -1,18 +1,7 @@
 import { Component } from '@angular/core';
 import { Vessel } from './vessel';
-
-const FLEET: Vessel[] = [
-  { imoNumber: 9155303, name: 'Merlin Arrow' },
-  { imoNumber: 9182485, name: 'Stove Campbell' },
-  { imoNumber: 9164184, name: 'Berge Atlantic' },
-  { imoNumber: 9214147, name: 'Barcarena' },
-  { imoNumber: 9228057, name: 'Bangor' },
-  { imoNumber: 9223980, name: 'Tamarita' },
-  { imoNumber: 9223992, name: 'Fermita' },
-  { imoNumber: 9335020, name: 'Serpentine' },
-  { imoNumber: 9734991, name: 'Spar Indus' },
-  { imoNumber: 9585285, name: 'MSC Divina' }
-];
+import { VesselService } from './vessel.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -21,11 +10,11 @@ const FLEET: Vessel[] = [
 <h1>{{title}}</h1>
 <h2>My Vessels</h2>
 <ul class="heroes">
-<li *ngFor="let vessel of heroes" [class.selected]="vessel === selectedHero" (click)="onSelect(vessel)">
+<li *ngFor="let vessel of ships" [class.selected]="vessel === selectedShip" (click)="onSelect(vessel)">
     <span class="badge">{{vessel.imoNumber}}</span> {{vessel.name}}
 </li>
 </ul>
-<my-vessel-detail [vessel]="selectedHero"></my-vessel-detail>
+<my-vessel-detail [vessel]="selectedShip"></my-vessel-detail>
   `,
 
   styles: [`
@@ -76,15 +65,27 @@ const FLEET: Vessel[] = [
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`]
+`],
+
+  providers: [VesselService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ships: Vessel[];
+  selectedShip: Vessel;
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
   onSelect(hero: Vessel): void {
-    this.selectedHero = hero;
+    this.selectedShip = hero;
+  }
+
+  getHeroes(): void {
+    this.ships = this.VesselService.getShips();
   }
 
   title = 'List of Vessels';
-  selectedHero: Vessel;
-  heroes = FLEET;
+  constructor(private VesselService: VesselService) { }
 }
