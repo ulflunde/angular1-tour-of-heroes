@@ -12,15 +12,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by E214595 on 27.02.2017.
  */
 var core_1 = require('@angular/core');
+var vessel_service_1 = require('./vessel.service');
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(VesselService) {
+        this.VesselService = VesselService;
+        this.affectedShips = [];
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.VesselService.getShips()
+            .then(function (affectedShips) { return _this.affectedShips = affectedShips.slice(1, 5); });
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'my-dashboard',
-            template: '<h3>My Dashboard</h3>'
+            templateUrl: './dashboard.component.html',
+            moduleId: module.id
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [vessel_service_1.VesselService])
     ], DashboardComponent);
     return DashboardComponent;
 }());
