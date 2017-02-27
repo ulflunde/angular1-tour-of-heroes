@@ -8,7 +8,15 @@ import { FLEET } from './mock-shiplist';
 
 @Injectable()
 export class VesselService {
-  getShips(): Vessel[] {
-    return FLEET;
+  getShips(): Promise<Vessel[]> {
+    return Promise.resolve(FLEET);
   }
+
+  getShipsSlowly(): Promise<Vessel[]> {
+    return new Promise(resolve => {
+      // Simulate server latency with 2 second delay
+      setTimeout(() => resolve(this.getShips()), 5000);
+    });
+  }
+
 }

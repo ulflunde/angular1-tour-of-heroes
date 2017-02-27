@@ -22,7 +22,9 @@ var AppComponent = (function () {
         this.selectedShip = hero;
     };
     AppComponent.prototype.getHeroes = function () {
-        this.ships = this.VesselService.getShips();
+        var _this = this;
+        // this.VesselService.getShips().then(ships => this.ships = ships);
+        this.VesselService.getShipsSlowly().then(function (ships) { return _this.ships = ships; });
     };
     AppComponent = __decorate([
         core_1.Component({

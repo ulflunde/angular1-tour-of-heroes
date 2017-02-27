@@ -83,7 +83,8 @@ export class AppComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.ships = this.VesselService.getShips();
+    // this.VesselService.getShips().then(ships => this.ships = ships);
+    this.VesselService.getShipsSlowly().then(ships => this.ships = ships);
   }
 
   title = 'List of Vessels';

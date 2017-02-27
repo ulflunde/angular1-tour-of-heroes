@@ -17,7 +17,14 @@ var VesselService = (function () {
     function VesselService() {
     }
     VesselService.prototype.getShips = function () {
-        return mock_shiplist_1.FLEET;
+        return Promise.resolve(mock_shiplist_1.FLEET);
+    };
+    VesselService.prototype.getShipsSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            // Simulate server latency with 2 second delay
+            setTimeout(function () { return resolve(_this.getShips()); }, 5000);
+        });
     };
     VesselService = __decorate([
         core_1.Injectable(), 
