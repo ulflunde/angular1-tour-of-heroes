@@ -27,7 +27,7 @@ var FleetComponent = (function () {
     };
     FleetComponent.prototype.getHeroes = function () {
         var _this = this;
-        this.VesselService.getShipsSlowly().then(function (ships) { return _this.ships = ships; });
+        this.VesselService.getShipsMockSlowly().then(function (ships) { return _this.ships = ships; });
     };
     FleetComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/detail', this.selectedShip.imoNumber]);

@@ -4,7 +4,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    let fleet = [
+    let fleetSimulation = [
       { imoNumber: 9155303, name: 'Merlin Arrow' },
       { imoNumber: 9182485, name: 'Stove Campbell' },
       { imoNumber: 9164184, name: 'Bergen Atlantic' },
@@ -16,6 +16,6 @@ export class InMemoryDataService implements InMemoryDbService {
       { imoNumber: 9734991, name: 'Spar Indus' },
       { imoNumber: 9585285, name: 'MSC Divina' }
     ];
-    return {fleet};
+    return {fleetSimulation};
   }
 }

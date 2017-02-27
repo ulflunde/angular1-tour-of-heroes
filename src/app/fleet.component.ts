@@ -27,7 +27,7 @@ export class FleetComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.VesselService.getShipsSlowly().then(ships => this.ships = ships);
+    this.VesselService.getShipsMockSlowly().then(ships => this.ships = ships);
   }
 
   gotoDetail(): void {

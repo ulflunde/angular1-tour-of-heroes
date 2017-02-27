@@ -3,7 +3,7 @@ var InMemoryDataService = (function () {
     function InMemoryDataService() {
     }
     InMemoryDataService.prototype.createDb = function () {
-        var fleet = [
+        var fleetSimulation = [
             { imoNumber: 9155303, name: 'Merlin Arrow' },
             { imoNumber: 9182485, name: 'Stove Campbell' },
             { imoNumber: 9164184, name: 'Bergen Atlantic' },
@@ -15,7 +15,7 @@ var InMemoryDataService = (function () {
             { imoNumber: 9734991, name: 'Spar Indus' },
             { imoNumber: 9585285, name: 'MSC Divina' }
         ];
-        return { fleet: fleet };
+        return { fleetSimulation: fleetSimulation };
     };
     return InMemoryDataService;
 }());
