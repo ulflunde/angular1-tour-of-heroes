@@ -38,6 +38,10 @@ var AppModule = (function () {
                     {
                         path: 'fleet',
                         component: fleet_component_1.FleetComponent
+                    },
+                    {
+                        path: 'detail/:imonumber',
+                        component: vessel_detail_component_1.VesselDetailComponent
                     }
                 ])
             ],

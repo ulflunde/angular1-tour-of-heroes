@@ -28,6 +28,10 @@ import { RouterModule }   from '@angular/router';
       {
         path: 'fleet',
         component: FleetComponent
+      },
+      {
+        path: 'detail/:imonumber',
+        component: VesselDetailComponent
       }
     ])
   ],
