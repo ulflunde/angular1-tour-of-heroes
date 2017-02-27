@@ -13,8 +13,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require('@angular/core');
 var vessel_service_1 = require('./vessel.service');
+var router_1 = require('@angular/router');
 var FleetComponent = (function () {
-    function FleetComponent(VesselService) {
+    function FleetComponent(router, VesselService) {
+        this.router = router;
         this.VesselService = VesselService;
     }
     FleetComponent.prototype.ngOnInit = function () {
@@ -25,16 +27,19 @@ var FleetComponent = (function () {
     };
     FleetComponent.prototype.getHeroes = function () {
         var _this = this;
-        this.VesselService.getShips().then(function (ships) { return _this.ships = ships; });
-        //this.VesselService.getShipsSlowly().then(ships => this.ships = ships);
+        this.VesselService.getShipsSlowly().then(function (ships) { return _this.ships = ships; });
+    };
+    FleetComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['/detail', this.selectedShip.imoNumber]);
     };
     FleetComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-vessels',
-            template: "\n<h2>My Vessels</h2>\n<ul class=\"heroes\">\n<li *ngFor=\"let vessel of ships\" [class.selected]=\"vessel === selectedShip\" (click)=\"onSelect(vessel)\">\n    <span class=\"badge\">{{vessel.imoNumber}}</span> {{vessel.name}}\n</li>\n</ul>\n<my-vessel-detail [vessel]=\"selectedShip\"></my-vessel-detail>\n  ",
-            styles: ["\n  .selected {\n    background-color: #CFFFDC !important;\n    color: black;\n  }\n  .heroes {\n    margin: 0 0 2em 0;\n    list-style-type: none;\n    padding: 0;\n    width: 15em;\n  }\n  .heroes li {\n    cursor: pointer;\n    position: relative;\n    left: 0;\n    background-color: #EEE;\n    margin: .5em;\n    padding: .3em 0;\n    height: 1.6em;\n    border-radius: 4px;\n  }\n  .heroes li.selected:hover {\n    background-color: #8fbf9c !important;\n    color: white;\n  }\n  .heroes li:hover {\n    color: #607D8B;\n    background-color: #DDD;\n    left: .1em;\n  }\n  .heroes .text {\n    position: relative;\n    top: -3px;\n  }\n  .heroes .badge {\n    display: inline-block;\n    font-size: small;\n    color: white;\n    padding: 0.8em 0.7em 0 0.7em;\n    background-color: #607D8B;\n    line-height: 1em;\n    position: relative;\n    left: -1px;\n    top: -4px;\n    height: 1.8em;\n    margin-right: .8em;\n    border-radius: 4px 0 0 4px;\n  }\n"]
+            templateUrl: './fleet.component.html',
+            styleUrls: ['./fleet.component.css']
         }), 
-        __metadata('design:paramtypes', [vessel_service_1.VesselService])
+        __metadata('design:paramtypes', [router_1.Router, vessel_service_1.VesselService])
     ], FleetComponent);
     return FleetComponent;
 }());

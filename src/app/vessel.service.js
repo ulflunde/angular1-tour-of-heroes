@@ -23,7 +23,7 @@ var VesselService = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             // Simulate server latency with 2 second delay
-            setTimeout(function () { return resolve(_this.getShips()); }, 5000);
+            setTimeout(function () { return resolve(_this.getShips()); }, 1000);
         });
     };
     VesselService.prototype.getHero = function (id) {

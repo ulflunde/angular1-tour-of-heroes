@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template:`
   <h1>{{title}}</h1>
   <nav>
-    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/dashboard">Claim &#8470; 170337</a>
     <a routerLink="/fleet">Fleet</a>
   </nav>
   <router-outlet></router-outlet>`
