@@ -1,8 +1,9 @@
 <h3>Affected Vessels</h3>
 <div class="grid grid-pad">
-  <div *ngFor="let vessel of affectedShips" class="col-1-4">
+  <a *ngFor="let vessel of affectedShips" [routerLink]="['/detail', vessel.imoNumber]" class="col-1-4">
     <div class="module hero">
       <h4>{{vessel.name}}</h4>
     </div>
-  </div>
+  </a>
 </div>
+

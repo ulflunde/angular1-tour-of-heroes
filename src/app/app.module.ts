@@ -30,7 +30,7 @@ import { RouterModule }   from '@angular/router';
         component: FleetComponent
       },
       {
-        path: 'detail/:imonumber',
+        path: 'detail/:imoNumber',
         component: VesselDetailComponent
       }
     ])
