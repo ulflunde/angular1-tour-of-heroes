@@ -23,8 +23,12 @@ var VesselService = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             // Simulate server latency with 2 second delay
-            setTimeout(function () { return resolve(_this.getShips()); }, 5000);
+            setTimeout(function () { return resolve(_this.getShips()); }, 1000);
         });
+    };
+    VesselService.prototype.getHero = function (id) {
+        return this.getShips()
+            .then(function (arrayelements) { return arrayelements.find(function (hero) { return hero.imoNumber === id; }); });
     };
     VesselService = __decorate([
         core_1.Injectable(), 

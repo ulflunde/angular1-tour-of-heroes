@@ -15,8 +15,13 @@ export class VesselService {
   getShipsSlowly(): Promise<Vessel[]> {
     return new Promise(resolve => {
       // Simulate server latency with 2 second delay
-      setTimeout(() => resolve(this.getShips()), 5000);
+      setTimeout(() => resolve(this.getShips()), 1000);
     });
+  }
+
+  getHero(id: number): Promise<Vessel> {
+    return this.getShips()
+      .then(arrayelements => arrayelements.find(hero => hero.imoNumber === id));
   }
 
 }

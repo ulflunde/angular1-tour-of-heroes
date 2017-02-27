@@ -13,9 +13,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require('@angular/core');
 var vessel_1 = require('./vessel');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
+var vessel_service_1 = require('./vessel.service');
+require('rxjs/add/operator/switchMap');
 var VesselDetailComponent = (function () {
-    function VesselDetailComponent() {
+    function VesselDetailComponent(VesselService, route, location) {
+        this.VesselService = VesselService;
+        this.route = route;
+        this.location = location;
     }
+    VesselDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params
+            .switchMap(function (params) { return _this.VesselService.getHero(+params['imoNumber']); })
+            .subscribe(function (vessel) { return _this.vessel = vessel; });
+    };
+    VesselDetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', vessel_1.Vessel)
@@ -23,9 +39,10 @@ var VesselDetailComponent = (function () {
     VesselDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-vessel-detail',
-            template: "\n<div *ngIf=\"vessel\">\n  <h2>{{vessel.name}} details</h2>\n<div><label>id: </label>{{vessel.id}}</div>\n<div>\n  <label>name: </label>\n<input [(ngModel)]=\"vessel.name\" placeholder=\"name\"/>\n  </div>\n  </div>"
+            templateUrl: './vessel-detail.component.html',
+            moduleId: module.id
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [vessel_service_1.VesselService, router_1.ActivatedRoute, common_1.Location])
     ], VesselDetailComponent);
     return VesselDetailComponent;
 }());
