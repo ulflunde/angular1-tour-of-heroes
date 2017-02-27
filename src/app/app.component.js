@@ -11,25 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var vessel_service_1 = require('./vessel.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(VesselService) {
+        this.VesselService = VesselService;
+        this.title = 'List of Vessels';
     }
     AppComponent.prototype.ngOnInit = function () {
         this.getHeroes();
     };
-    return AppComponent;
-}());
-exports.AppComponent = AppComponent;
-var AppComponent = (function () {
-    function AppComponent(vesselService) {
-        this.vesselService = vesselService;
-        this.title = 'List of Vessels';
-        this.ships = FLEET;
-    }
-    AppComponent.prototype.getHeroes = function () {
-        this.ships = this.vesselService.getShips();
-    };
     AppComponent.prototype.onSelect = function (hero) {
         this.selectedShip = hero;
+    };
+    AppComponent.prototype.getHeroes = function () {
+        this.ships = this.VesselService.getShips();
     };
     AppComponent = __decorate([
         core_1.Component({

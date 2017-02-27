@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
+import { Vessel } from './vessel';
 import { VesselService } from './vessel.service';
 import { OnInit } from '@angular/core';
-
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    this.getHeroes();
-  }
-}
 
 @Component({
   selector: 'my-app',
@@ -71,22 +66,26 @@ export class AppComponent implements OnInit {
     border-radius: 4px 0 0 4px;
   }
 `],
+
   providers: [VesselService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   ships: Vessel[];
+  selectedShip: Vessel;
 
-  getHeroes(): void {
-    this.ships = this.vesselService.getShips();
+  ngOnInit(): void {
+    this.getHeroes();
   }
 
   onSelect(hero: Vessel): void {
     this.selectedShip = hero;
   }
 
+  getHeroes(): void {
+    this.ships = this.VesselService.getShips();
+  }
+
   title = 'List of Vessels';
-  selectedShip: Vessel;
-  ships = FLEET;
-  constructor(private vesselService: VesselService) { }
+  constructor(private VesselService: VesselService) { }
 }
