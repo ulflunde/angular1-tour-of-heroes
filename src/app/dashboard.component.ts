@@ -8,7 +8,8 @@ import { VesselService } from './vessel.service';
 @Component({
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
-  moduleId: module.id
+  moduleId: module.id,
+  styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
 
@@ -18,6 +19,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.VesselService.getShips()
-      .then(affectedShips => this.affectedShips = affectedShips.slice(1, 5));
+      .then(affectedShips => this.affectedShips = affectedShips.slice(4, 7));
   }
 }

@@ -21,13 +21,14 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.VesselService.getShips()
-            .then(function (affectedShips) { return _this.affectedShips = affectedShips.slice(1, 5); });
+            .then(function (affectedShips) { return _this.affectedShips = affectedShips.slice(4, 7); });
     };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'my-dashboard',
             templateUrl: './dashboard.component.html',
-            moduleId: module.id
+            moduleId: module.id,
+            styleUrls: ['./dashboard.component.css']
         }), 
         __metadata('design:paramtypes', [vessel_service_1.VesselService])
     ], DashboardComponent);
