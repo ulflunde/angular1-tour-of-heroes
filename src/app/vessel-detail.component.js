@@ -32,15 +32,21 @@ var VesselDetailComponent = (function () {
     VesselDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    VesselDetailComponent.prototype.save = function () {
+        var _this = this;
+        this.VesselService.update(this.vessel)
+            .then(function () { return _this.goBack(); });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', vessel_1.Vessel)
     ], VesselDetailComponent.prototype, "vessel", void 0);
     VesselDetailComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-vessel-detail',
             templateUrl: './vessel-detail.component.html',
-            moduleId: module.id
+            styleUrls: ['./vessel-detail.component.css']
         }), 
         __metadata('design:paramtypes', [vessel_service_1.VesselService, router_1.ActivatedRoute, common_1.Location])
     ], VesselDetailComponent);

@@ -14,20 +14,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-//import { FLEET } from './mock-shiplist';
+var mock_shiplist_1 = require('./mock-shiplist');
 var VesselService = (function () {
     function VesselService(http) {
         this.http = http;
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.heroesUrl = 'api/fleetSimulation'; // URL to web api
     }
     VesselService.prototype.getShipsMock = function () {
-        return Promise.resolve(FLEET);
+        return Promise.resolve(mock_shiplist_1.FLEET);
     };
     VesselService.prototype.getShipsMockSlowly = function () {
         var _this = this;
         return new Promise(function (resolve) {
-            // Simulate server latency with 2 second delay
-            setTimeout(function () { return resolve(_this.getShips()); }, 1000);
+            // Simulate server latency with 1 second delay
+            setTimeout(function () { return resolve(_this.getShipsMock()); }, 1000);
         });
     };
     VesselService.prototype.getHero = function (id) {
@@ -35,7 +36,7 @@ var VesselService = (function () {
             .then(function (arrayelements) { return arrayelements.find(function (hero) { return hero.imoNumber === id; }); });
     };
     VesselService.prototype.getHeroByImoNumber = function (id) {
-        var url = this.heroesUrl + "/" + id;
+        var url = this.heroesUrl + "/" + id; // virker ikke
         return this.http.get(url)
             .toPromise()
             .then(function (response) { return response.json().data; })
@@ -50,6 +51,14 @@ var VesselService = (function () {
     VesselService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
+    };
+    VesselService.prototype.update = function (vessel) {
+        var url = this.heroesUrl + "/" + vessel.imoNumber;
+        return this.http
+            .put(url, JSON.stringify(vessel), { headers: this.headers })
+            .toPromise()
+            .then(function () { return vessel; })
+            .catch(this.handleError);
     };
     VesselService = __decorate([
         core_1.Injectable(), 
