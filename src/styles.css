@@ -16,6 +16,7 @@ body, input[text], button {
   color: #888;
   font-family: Cambria, Georgia;
 }
+
 a {
   cursor: pointer;
   cursor: hand;
