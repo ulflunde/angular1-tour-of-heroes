@@ -9,7 +9,7 @@ import { VesselService } from './vessel.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-vessel-detail',
   templateUrl: './vessel-detail.component.html',
   styleUrls: ['./vessel-detail.component.css']

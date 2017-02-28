@@ -8,7 +8,6 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-vessels',
   templateUrl: './fleet.component.html',
   styleUrls: [ './fleet.component.css' ]

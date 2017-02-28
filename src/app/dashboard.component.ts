@@ -6,7 +6,7 @@ import { Vessel } from './vessel';
 import { VesselService } from './vessel.service';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: [ './dashboard.component.css' ]

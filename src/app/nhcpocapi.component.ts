@@ -8,7 +8,7 @@ import { FleetEntry } from './fleetEntry';
 import { FleetService } from './fleet.service';
 
 @Component({
-  moduleId: module.id,
+// moduleId: module.id,
   selector: 'my-nhcpocapi',
   templateUrl: './nhcpocapi.component.html',
   styleUrls: [ './nhcpocapi.component.css' ]
