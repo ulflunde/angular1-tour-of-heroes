@@ -56,6 +56,17 @@ var FleetComponent = (function () {
             _this.selectedShip = null;
         });
     };
+    FleetComponent.prototype.delete = function (hero) {
+        var _this = this;
+        this.VesselService
+            .delete(hero.id)
+            .then(function () {
+            _this.ships = _this.ships.filter(function (h) { return h !== hero; });
+            if (_this.selectedShip === hero) {
+                _this.selectedShip = null;
+            }
+        });
+    };
     FleetComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

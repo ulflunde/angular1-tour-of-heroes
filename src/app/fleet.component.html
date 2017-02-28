@@ -1,7 +1,10 @@
 <h2>My Vessels</h2>
 <ul class="heroes">
   <li *ngFor="let vessel of ships" [class.selected]="vessel === selectedShip" (click)="onSelect(vessel)">
-    <span class="badge">{{vessel.id}}</span> {{vessel.name}}
+    <span class="badge">{{vessel.id}}</span>
+    <span>{{vessel.name}}</span>
+    <button class="delete"
+            (click)="delete(vessel); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="selectedShip">

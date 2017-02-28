@@ -58,4 +58,13 @@ export class FleetComponent implements OnInit {
         this.selectedShip = null;
       });
   }
+
+  delete(hero: Vessel): void {
+    this.VesselService
+      .delete(hero.id)
+      .then(() => {
+        this.ships = this.ships.filter(h => h !== hero);
+        if (this.selectedShip === hero) { this.selectedShip = null; }
+      });
+  }
 }
