@@ -12,13 +12,11 @@ import { FLEET } from './mock-shiplist';
 export class VesselService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private heroesUrl = 'api/fleetSim';  // URL to web api
-  constructor(private http: Http) { }
 
 
   getShipsMock(): Promise<Vessel[]> {
     return Promise.resolve(FLEET);
   }
-
 
   getShipsMockSlowly(): Promise<Vessel[]> {
     return new Promise(resolve => {
@@ -27,19 +25,16 @@ export class VesselService {
     });
   }
 
-
   getShipsSlowly(): Promise<Vessel[]> {
     return new Promise(resolve => {
       setTimeout(() => resolve(this.getShips()), 1000);
     });
   }
 
-
   getHero(id: number): Promise<Vessel> {
     return this.getShips()
       .then(arrayelements => arrayelements.find(hero => hero.imoNumber === id));
   }
-
 
   getHeroByImoNumber(id: number): Promise<Vessel> {
     const url = `${this.heroesUrl}/${id}`;  // virker ikke
@@ -49,6 +44,7 @@ export class VesselService {
       .catch(this.handleError);
   }
 
+  constructor(private http: Http) { }
 
   getShips(): Promise<Vessel[]> {
     return this.http.get(this.heroesUrl)

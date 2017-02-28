@@ -29,6 +29,14 @@ var FleetComponent = (function () {
         var _this = this;
         this.VesselService.getShipsMockSlowly().then(function (ships) { return _this.ships = ships; });
     };
+    FleetComponent.prototype.getMockFleet = function () {
+        var _this = this;
+        this.VesselService.getShipsMockSlowly().then(function (ships) { return _this.ships = ships; });
+    };
+    FleetComponent.prototype.getFleetSlowly = function () {
+        var _this = this;
+        this.VesselService.getShipsSlowly().then(function (ships) { return _this.ships = ships; });
+    };
     FleetComponent.prototype.getFleet = function () {
         var _this = this;
         this.VesselService.getShips().then(function (ships) { return _this.ships = ships; });
