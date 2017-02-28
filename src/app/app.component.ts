@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
+
   selector: 'my-app',
+
   styleUrls: ['./app.component.css'],
 
   template:`
@@ -23,6 +25,6 @@ import { Component } from '@angular/core';
 
 export class AppComponent
 {
-  title = 'Claim &#8470; 170337';
+  // title = 'Claim &#8470; 170337';
   title = 'Claim No.170337';
 }

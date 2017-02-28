@@ -12,9 +12,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by E214595 on 24.02.2017.
  */
 var core_1 = require('@angular/core');
-var vessel_1 = require('./vessel');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
+var vessel_1 = require('./vessel');
 var vessel_service_1 = require('./vessel.service');
 require('rxjs/add/operator/switchMap');
 var VesselDetailComponent = (function () {

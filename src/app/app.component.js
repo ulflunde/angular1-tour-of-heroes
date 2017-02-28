@@ -12,7 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Claim &#8470; 170337';
+        // title = 'Claim &#8470; 170337';
         this.title = 'Claim No.170337';
     }
     AppComponent = __decorate([

@@ -2,9 +2,9 @@
  * Created by E214595 on 24.02.2017.
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { Vessel } from './vessel';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
+import { Vessel } from './vessel';
 import { VesselService } from './vessel.service';
 import 'rxjs/add/operator/switchMap';
 
