@@ -43,9 +43,10 @@ var VesselDetailComponent = (function () {
     ], VesselDetailComponent.prototype, "vessel", void 0);
     VesselDetailComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-vessel-detail',
             templateUrl: './vessel-detail.component.html',
-            moduleId: module.id
+            styleUrls: ['./vessel-detail.component.css']
         }), 
         __metadata('design:paramtypes', [vessel_service_1.VesselService, router_1.ActivatedRoute, common_1.Location])
     ], VesselDetailComponent);

@@ -4,7 +4,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-
 import { Vessel } from './vessel';
 import { FLEET } from './mock-shiplist';
 
@@ -67,5 +66,4 @@ export class VesselService {
       .then(() => vessel)
       .catch(this.handleError);
   }
-
 }
