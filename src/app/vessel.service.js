@@ -19,7 +19,7 @@ var VesselService = (function () {
     function VesselService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.heroesUrl = 'api/fleetSimulation'; // URL to web api
+        this.heroesUrl = 'api/fleetSim'; // URL to web api
     }
     VesselService.prototype.getShipsMock = function () {
         return Promise.resolve(mock_shiplist_1.FLEET);
@@ -29,6 +29,12 @@ var VesselService = (function () {
         return new Promise(function (resolve) {
             // Simulate server latency with 1 second delay
             setTimeout(function () { return resolve(_this.getShipsMock()); }, 1000);
+        });
+    };
+    VesselService.prototype.getShipsSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            setTimeout(function () { return resolve(_this.getShips()); }, 1000);
         });
     };
     VesselService.prototype.getHero = function (id) {
@@ -53,7 +59,7 @@ var VesselService = (function () {
         return Promise.reject(error.message || error);
     };
     VesselService.prototype.update = function (vessel) {
-        var url = this.heroesUrl + "/" + vessel.imoNumber;
+        var url = this.heroesUrl + "/" + vessel.id;
         return this.http
             .put(url, JSON.stringify(vessel), { headers: this.headers })
             .toPromise()

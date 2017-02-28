@@ -4,7 +4,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-
 import { Vessel } from './vessel';
 import { FLEET } from './mock-shiplist';
 
@@ -12,12 +11,14 @@ import { FLEET } from './mock-shiplist';
 @Injectable()
 export class VesselService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private heroesUrl = 'api/fleetSimulation';  // URL to web api
+  private heroesUrl = 'api/fleetSim';  // URL to web api
+  constructor(private http: Http) { }
 
 
   getShipsMock(): Promise<Vessel[]> {
     return Promise.resolve(FLEET);
   }
+
 
   getShipsMockSlowly(): Promise<Vessel[]> {
     return new Promise(resolve => {
@@ -26,10 +27,19 @@ export class VesselService {
     });
   }
 
+
+  getShipsSlowly(): Promise<Vessel[]> {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(this.getShips()), 1000);
+    });
+  }
+
+
   getHero(id: number): Promise<Vessel> {
     return this.getShips()
       .then(arrayelements => arrayelements.find(hero => hero.imoNumber === id));
   }
+
 
   getHeroByImoNumber(id: number): Promise<Vessel> {
     const url = `${this.heroesUrl}/${id}`;  // virker ikke
@@ -39,7 +49,6 @@ export class VesselService {
       .catch(this.handleError);
   }
 
-  constructor(private http: Http) { }
 
   getShips(): Promise<Vessel[]> {
     return this.http.get(this.heroesUrl)
@@ -54,7 +63,7 @@ export class VesselService {
   }
 
   update(vessel: Vessel): Promise<Vessel> {
-    const url = `${this.heroesUrl}/${vessel.imoNumber}`;
+    const url = `${this.heroesUrl}/${vessel.id}`;
     return this.http
       .put(url, JSON.stringify(vessel), {headers: this.headers})
       .toPromise()

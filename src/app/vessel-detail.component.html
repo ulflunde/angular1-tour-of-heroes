@@ -1,7 +1,7 @@
 <div *ngIf="vessel">
   <h2>{{vessel.name}} details</h2>
-  <div><label>id (read-only): </label>{{vessel.imoNumber}}</div>
-  <div class="inputfields">
+  <div><label>IMO-number: </label>{{vessel.imoNumber}}</div>
+  <div>
     <label>shipname: </label>
     <input [(ngModel)]="vessel.name" placeholder="name"/>
   </div>
