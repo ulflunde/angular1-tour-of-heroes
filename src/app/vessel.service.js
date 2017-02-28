@@ -66,6 +66,13 @@ var VesselService = (function () {
             .then(function () { return vessel; })
             .catch(this.handleError);
     };
+    VesselService.prototype.create = function (name) {
+        return this.http
+            .post(this.heroesUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
     VesselService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

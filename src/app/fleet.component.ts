@@ -48,4 +48,14 @@ export class FleetComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedShip.imoNumber]);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.VesselService.create(name)
+      .then(hero => {
+        this.ships.push(hero);
+        this.selectedShip = null;
+      });
+  }
 }

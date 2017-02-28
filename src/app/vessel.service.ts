@@ -53,10 +53,12 @@ export class VesselService {
       .catch(this.handleError);
   }
 
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
+
 
   update(vessel: Vessel): Promise<Vessel> {
     const url = `${this.heroesUrl}/${vessel.id}`;
@@ -64,6 +66,15 @@ export class VesselService {
       .put(url, JSON.stringify(vessel), {headers: this.headers})
       .toPromise()
       .then(() => vessel)
+      .catch(this.handleError);
+  }
+
+
+  create(name: string): Promise<Vessel> {
+    return this.http
+      .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data)
       .catch(this.handleError);
   }
 }

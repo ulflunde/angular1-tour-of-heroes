@@ -44,6 +44,18 @@ var FleetComponent = (function () {
     FleetComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/detail', this.selectedShip.imoNumber]);
     };
+    FleetComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.VesselService.create(name)
+            .then(function (hero) {
+            _this.ships.push(hero);
+            _this.selectedShip = null;
+        });
+    };
     FleetComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

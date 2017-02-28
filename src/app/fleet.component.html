@@ -10,3 +10,9 @@
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>
+<div>
+  <label>Add vessel:</label> <input #shipName />
+  <button (click)="add(shipName.value); shipName.value=''">
+    Add
+  </button>
+</div>
