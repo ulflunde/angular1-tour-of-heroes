@@ -9,13 +9,20 @@ import { Component } from '@angular/core';
   template:`
   <h1>{{title}}</h1>
   <nav>
-    <a routerLink="/dashboard">Claim &#8470; 170337</a>
-    <a routerLink="/fleet">Fleet</a>
+    <a routerLink="/fleet">My fleet</a>
+    <a routerLink="/dashboard">Affected vessels</a>
+    <a routerLink="/documents">Documents</a>
+    <a routerLink="/map">Maps</a>
+    <a routerLink="/pic">Photos</a>
+    <a routerLink="/log">Message archive</a>
+    <a routerLink="/activity">Activities</a>
+    <a routerLink="/people">Contacts</a>
   </nav>
   <router-outlet></router-outlet>`
 })
 
 export class AppComponent
 {
-  title = 'Fleet details';
+  title = 'Claim &#8470; 170337';
+  title = 'Claim No.170337';
 }
