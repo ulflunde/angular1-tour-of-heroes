@@ -4,15 +4,16 @@ h1 {
   font-size: 250%;
 }
 h2, h3 {
-  color: #444;
+  color: #FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
 body {
   margin: 2em;
+  background-image: url("../images/norclub.no section-intro.jpg");
 }
 body, input[text], button {
-  color: #888;
+  color: #030805;
   font-family: Cambria, Georgia;
 }
 
@@ -22,7 +23,8 @@ a {
 }
 button {
   font-family: Arial;
-  background-color: #eee;
+  /* background-color: #eee; */
+  background-color: #FFAAAA;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -30,7 +32,8 @@ button {
   cursor: hand;
 }
 button:hover {
-  background-color: #cfd8dc;
+  /* background-color: #cfd8dc; */
+  background-color: #00FFFF;
 }
 button:disabled {
   background-color: #eee;
@@ -45,7 +48,8 @@ nav a {
   margin-right: 10px;
   margin-top: 10px;
   display: inline-block;
-  background-color: #eee;
+  /* background-color: #eee; */
+  background-color: #FFFF33;
   border-radius: 4px;
 }
 nav a:visited, a:link {
@@ -53,12 +57,16 @@ nav a:visited, a:link {
 }
 nav a:hover {
   color: #039be5;
-  background-color: #CFD8DC;
+  /* background-color: #CFD8DC; */
+  background-color: #FF0000;
 }
 nav a.active {
   color: #039be5;
 }
 
+.lighttext {
+  color: #FFFFAA;
+}
 /* items class */
 .items {
   margin: 0 0 2em 0;
@@ -70,7 +78,8 @@ nav a.active {
   cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #EEE;
+  /* background-color: #EEE; */
+  background-color: #00FF00;
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
@@ -78,15 +87,18 @@ nav a.active {
 }
 .items li:hover {
   color: #607D8B;
-  background-color: #DDD;
+  /* background-color: #DDD; */
+  background-color: #FFFF00;
   left: .1em;
 }
 .items li.selected {
-  background-color: #CFD8DC;
+  /* background-color: #CFD8DC; */
+  background-color: #FF00FF;
   color: white;
 }
 .items li.selected:hover {
-  background-color: #BBD8DC;
+  /* background-color: #BBD8DC; */
+  background-color: #0099FF;
 }
 .items .text {
   position: relative;
@@ -97,7 +109,7 @@ nav a.active {
   font-size: small;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
+  background-color: #30CD5B;
   line-height: 1em;
   position: relative;
   left: -1px;

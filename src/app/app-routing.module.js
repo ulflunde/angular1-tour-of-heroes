@@ -16,11 +16,21 @@ var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
 var fleet_component_1 = require('./fleet.component');
 var vessel_detail_component_1 = require('./vessel-detail.component');
+var nhcpocapi_component_1 = require('./nhcpocapi.component');
+var fleet_detail_component_1 = require('./fleet-detail.component');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'detail/:imoNumber', component: vessel_detail_component_1.VesselDetailComponent },
-    { path: 'fleet', component: fleet_component_1.FleetComponent }
+    { path: 'shipdetail/:imoNumber', component: fleet_detail_component_1.FleetDetailComponent },
+    { path: 'fleet', component: fleet_component_1.FleetComponent },
+    { path: 'api', component: nhcpocapi_component_1.NhcpocapiComponent },
+    { path: 'documents', component: nhcpocapi_component_1.NhcpocapiComponent },
+    { path: 'map', component: nhcpocapi_component_1.NhcpocapiComponent },
+    { path: 'pic', component: nhcpocapi_component_1.NhcpocapiComponent },
+    { path: 'log', component: nhcpocapi_component_1.NhcpocapiComponent },
+    { path: 'activity', component: nhcpocapi_component_1.NhcpocapiComponent },
+    { path: 'people', component: nhcpocapi_component_1.NhcpocapiComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -20,7 +20,7 @@ var AppComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             styleUrls: ['./app.component.css'],
-            template: "\n  <h1>{{title}}</h1>\n  <nav>\n    <a routerLink=\"/fleet\">My fleet</a>\n    <a routerLink=\"/dashboard\">Affected vessels</a>\n    <a routerLink=\"/documents\">Documents</a>\n    <a routerLink=\"/map\">Maps</a>\n    <a routerLink=\"/pic\">Photos</a>\n    <a routerLink=\"/log\">Message archive</a>\n    <a routerLink=\"/activity\">Activities</a>\n    <a routerLink=\"/people\">Contacts</a>\n  </nav>\n  <router-outlet></router-outlet>"
+            template: "\n  <h1>{{title}}</h1>\n  <nav>\n    <a routerLink=\"/fleet\">My fleet (mockup)</a>\n    <a routerLink=\"/api\">My fleet (http)</a>\n    <a routerLink=\"/dashboard\">Affected vessels</a>\n    <a routerLink=\"/documents\">Documents</a>\n    <a routerLink=\"/map\">Maps</a>\n    <a routerLink=\"/pic\">Photos</a>\n    <a routerLink=\"/log\">Message archive</a>\n    <a routerLink=\"/activity\">Activities</a>\n    <a routerLink=\"/people\">Contacts</a>\n  </nav>\n  <router-outlet></router-outlet>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

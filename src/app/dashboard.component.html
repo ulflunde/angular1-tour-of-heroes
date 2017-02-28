@@ -1,4 +1,5 @@
 <h3>Affected Vessels</h3>
+<div class="lighttext">Please select one for details about that vessel.</div>
 <div class="grid grid-pad">
   <a *ngFor="let vessel of affectedShips" [routerLink]="['/detail', vessel.imoNumber]" class="col-1-4">
     <div class="module hero">

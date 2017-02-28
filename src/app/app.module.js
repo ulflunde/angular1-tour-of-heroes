@@ -15,12 +15,15 @@ var http_1 = require('@angular/http');
 // Imports for loading & configuring the in-memory web api
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var in_memory_data_service_1 = require('./in-memory-data.service');
+var app_routing_module_1 = require('./app-routing.module');
 var app_component_1 = require('./app.component');
 var vessel_detail_component_1 = require('./vessel-detail.component');
 var fleet_component_1 = require('./fleet.component');
 var dashboard_component_1 = require('./dashboard.component');
+var nhcpocapi_component_1 = require('./nhcpocapi.component');
+var fleet_detail_component_1 = require('./fleet-detail.component');
 var vessel_service_1 = require('./vessel.service');
-var app_routing_module_1 = require('./app-routing.module');
+var fleet_service_1 = require("./fleet.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,9 +40,11 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 dashboard_component_1.DashboardComponent,
                 vessel_detail_component_1.VesselDetailComponent,
-                fleet_component_1.FleetComponent
+                fleet_component_1.FleetComponent,
+                fleet_detail_component_1.FleetDetailComponent,
+                nhcpocapi_component_1.NhcpocapiComponent
             ],
-            providers: [vessel_service_1.VesselService],
+            providers: [vessel_service_1.VesselService, fleet_service_1.FleetService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

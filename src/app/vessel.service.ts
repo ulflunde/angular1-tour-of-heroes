@@ -12,7 +12,7 @@ import { FLEET } from './mock-shiplist';
 export class VesselService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private heroesUrl = 'api/fleetSim';  // URL to web api
-
+  constructor(private http: Http) { }
 
   getShipsMock(): Promise<Vessel[]> {
     return Promise.resolve(FLEET);
@@ -43,8 +43,6 @@ export class VesselService {
       .then(response => response.json().data as Vessel)
       .catch(this.handleError);
   }
-
-  constructor(private http: Http) { }
 
   getShips(): Promise<Vessel[]> {
     return this.http.get(this.heroesUrl)

@@ -3,15 +3,13 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-
   selector: 'my-app',
-
   styleUrls: ['./app.component.css'],
-
   template:`
   <h1>{{title}}</h1>
   <nav>
-    <a routerLink="/fleet">My fleet</a>
+    <a routerLink="/fleet">My fleet (mockup)</a>
+    <a routerLink="/api">My fleet (http)</a>
     <a routerLink="/dashboard">Affected vessels</a>
     <a routerLink="/documents">Documents</a>
     <a routerLink="/map">Maps</a>

@@ -25,9 +25,9 @@ var DashboardComponent = (function () {
     };
     DashboardComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-dashboard',
             templateUrl: './dashboard.component.html',
-            moduleId: module.id,
             styleUrls: ['./dashboard.component.css']
         }), 
         __metadata('design:paramtypes', [vessel_service_1.VesselService])

@@ -6,9 +6,9 @@ import { Vessel } from './vessel';
 import { VesselService } from './vessel.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
-  moduleId: module.id,
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {

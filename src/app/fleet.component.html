@@ -1,3 +1,4 @@
+<div class="middle">
 <h2>My Vessels</h2>
 <ul class="heroes">
   <li *ngFor="let vessel of ships" [class.selected]="vessel === selectedShip" (click)="onSelect(vessel)">
@@ -14,8 +15,9 @@
   <button (click)="gotoDetail()">View Details</button>
 </div>
 <div>
-  <label>Add vessel:</label> <input #shipName />
+  <label class="lighttext">Add vessel:</label> <input #shipName />
   <button (click)="add(shipName.value); shipName.value=''">
     Add
   </button>
+</div>
 </div>
