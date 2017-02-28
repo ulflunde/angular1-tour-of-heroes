@@ -8,9 +8,6 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "i18n",
-        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,26 +16,14 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.scss",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "../node_modules/mdi/scss/materialdesignicons.scss"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"
-
       ],
       "environments": {
-        "source": "environments/environment.ts",
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
       }
     }
   ],
   "addons": [
-    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)",
-    "../node_modules/bootstrap-sass/assets/fonts/bootstrap/*.+(otf|eot|svg|ttf|woff|woff2)",
-    "../node_modules/mdi/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
   ],
   "packages": [
   ],
