@@ -17,6 +17,9 @@ import { Router } from '@angular/router';
 export class FleetComponent implements OnInit {
   ships: Vessel[];
   selectedShip: Vessel;
+  constructor(
+    private router: Router,
+    private VesselService: VesselService) { }
 
   ngOnInit(): void {
     this.getFleet();
@@ -45,8 +48,4 @@ export class FleetComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedShip.imoNumber]);
   }
-
-  constructor(
-    private router: Router,
-    private VesselService: VesselService) { }
 }
