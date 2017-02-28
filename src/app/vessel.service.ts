@@ -6,18 +6,28 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Vessel } from './vessel';
-//import { FLEET } from './mock-shiplist';
+import { FLEET } from './mock-shiplist';
 
 
 @Injectable()
 export class VesselService {
+  private headers = new Headers({'Content-Type': 'application/json'});
+  private heroesUrl = 'api/fleetSim';  // URL to web api
+
+
   getShipsMock(): Promise<Vessel[]> {
     return Promise.resolve(FLEET);
   }
 
   getShipsMockSlowly(): Promise<Vessel[]> {
     return new Promise(resolve => {
-      // Simulate server latency with 2 second delay
+      // Simulate server latency with 1 second delay
+      setTimeout(() => resolve(this.getShipsMock()), 1000);
+    });
+  }
+
+  getShipsSlowly(): Promise<Vessel[]> {
+    return new Promise(resolve => {
       setTimeout(() => resolve(this.getShips()), 1000);
     });
   }
@@ -28,14 +38,12 @@ export class VesselService {
   }
 
   getHeroByImoNumber(id: number): Promise<Vessel> {
-    const url = `${this.heroesUrl}/${id}`;
+    const url = `${this.heroesUrl}/${id}`;  // virker ikke
     return this.http.get(url)
       .toPromise()
       .then(response => response.json().data as Vessel)
       .catch(this.handleError);
   }
-
-  private heroesUrl = 'api/fleetSimulation';  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -49,6 +57,15 @@ export class VesselService {
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
+  }
+
+  update(vessel: Vessel): Promise<Vessel> {
+    const url = `${this.heroesUrl}/${vessel.id}`;
+    return this.http
+      .put(url, JSON.stringify(vessel), {headers: this.headers})
+      .toPromise()
+      .then(() => vessel)
+      .catch(this.handleError);
   }
 
 }

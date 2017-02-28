@@ -32,6 +32,11 @@ var VesselDetailComponent = (function () {
     VesselDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    VesselDetailComponent.prototype.save = function () {
+        var _this = this;
+        this.VesselService.update(this.vessel)
+            .then(function () { return _this.goBack(); });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', vessel_1.Vessel)

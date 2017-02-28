@@ -9,14 +9,14 @@ import { VesselService } from './vessel.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-vessel-detail',
   templateUrl: './vessel-detail.component.html',
-  moduleId: module.id
+  styleUrls: ['./vessel-detail.component.css']
 })
 
 export class VesselDetailComponent implements OnInit {
-  @Input()
-  vessel: Vessel;
+  @Input() vessel: Vessel;
 
   constructor(
     private VesselService: VesselService,
@@ -32,5 +32,10 @@ export class VesselDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.VesselService.update(this.vessel)
+      .then(() => this.goBack());
   }
 }

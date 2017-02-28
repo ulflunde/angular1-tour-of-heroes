@@ -1,9 +1,10 @@
 <div *ngIf="vessel">
   <h2>{{vessel.name}} details</h2>
-  <div><label>id: </label>{{vessel.imoNumber}}</div>
+  <div><label>IMO-number: </label>{{vessel.imoNumber}}</div>
   <div>
     <label>shipname: </label>
     <input [(ngModel)]="vessel.name" placeholder="name"/>
   </div>
 </div>
 <button (click)="goBack()">Back</button>
+<button (click)="save()">Save</button>

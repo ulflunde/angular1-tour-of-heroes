@@ -19,7 +19,7 @@ export class FleetComponent implements OnInit {
   selectedShip: Vessel;
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getFleet();
   }
 
   onSelect(hero: Vessel): void {
@@ -28,6 +28,18 @@ export class FleetComponent implements OnInit {
 
   getHeroes(): void {
     this.VesselService.getShipsMockSlowly().then(ships => this.ships = ships);
+  }
+
+  getMockFleet(): void {
+    this.VesselService.getShipsMockSlowly().then(ships => this.ships = ships);
+  }
+
+  getFleetSlowly(): void {
+    this.VesselService.getShipsSlowly().then(ships => this.ships = ships);
+  }
+
+  getFleet(): void {
+    this.VesselService.getShips().then(ships => this.ships = ships);
   }
 
   gotoDetail(): void {

@@ -20,7 +20,7 @@ var FleetComponent = (function () {
         this.VesselService = VesselService;
     }
     FleetComponent.prototype.ngOnInit = function () {
-        this.getHeroes();
+        this.getFleet();
     };
     FleetComponent.prototype.onSelect = function (hero) {
         this.selectedShip = hero;
@@ -28,6 +28,18 @@ var FleetComponent = (function () {
     FleetComponent.prototype.getHeroes = function () {
         var _this = this;
         this.VesselService.getShipsMockSlowly().then(function (ships) { return _this.ships = ships; });
+    };
+    FleetComponent.prototype.getMockFleet = function () {
+        var _this = this;
+        this.VesselService.getShipsMockSlowly().then(function (ships) { return _this.ships = ships; });
+    };
+    FleetComponent.prototype.getFleetSlowly = function () {
+        var _this = this;
+        this.VesselService.getShipsSlowly().then(function (ships) { return _this.ships = ships; });
+    };
+    FleetComponent.prototype.getFleet = function () {
+        var _this = this;
+        this.VesselService.getShips().then(function (ships) { return _this.ships = ships; });
     };
     FleetComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/detail', this.selectedShip.imoNumber]);
