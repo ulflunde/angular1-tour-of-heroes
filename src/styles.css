@@ -10,7 +10,7 @@ h2, h3 {
 }
 body {
   margin: 2em;
-/*   background-image: url("../images/norclub.no section-intro.jpg"); */
+  background-image: url("./assets/norclub.no section-intro.jpg");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
