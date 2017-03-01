@@ -12,9 +12,7 @@ import { VesselService } from './vessel.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-
   affectedShips: Vessel[] = [];
-
   constructor(private VesselService: VesselService) { }
 
   ngOnInit(): void {

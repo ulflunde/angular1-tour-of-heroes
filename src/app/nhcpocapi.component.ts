@@ -17,6 +17,7 @@ import { FleetService } from './fleet.service';
 export class NhcpocapiComponent implements OnInit {
   ships: FleetEntry[];
   selectedShip: FleetEntry;
+
   constructor(
     private router: Router,
     private fleetService: FleetService) { }
@@ -25,12 +26,12 @@ export class NhcpocapiComponent implements OnInit {
     this.getFleet();
   }
 
-  onSelect(hero: FleetEntry): void {
-    this.selectedShip = hero;
-  }
-
   getFleet(): void {
     this.fleetService.getFleet().then(ships => this.ships = ships);
+  }
+
+  onSelect(hero: FleetEntry): void {
+    this.selectedShip = hero;
   }
 
   gotoDetail(): void {
