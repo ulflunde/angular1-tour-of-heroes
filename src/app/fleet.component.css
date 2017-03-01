@@ -58,3 +58,7 @@ button.delete {
   background-color: gray !important;
   color:white;
 }
+
+.delete {
+  display: none;   /* hide the delete button; we don't need it in the demo */
+}

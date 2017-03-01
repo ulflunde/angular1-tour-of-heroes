@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://nhcpocapi.azurewebsites.net/api/fleet",
+    "target": "http://nhcpocapi.azurewebsites.net",
     "secure": false,
     "changeOrigin": true,
     "xfwd": false
