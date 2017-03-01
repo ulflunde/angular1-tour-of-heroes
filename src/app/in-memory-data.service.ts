@@ -1,7 +1,7 @@
 /**
  * Created by E214595 on 27.02.2017.
  */
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDbService } from 'angular-in-memory-web-api';  // must remove this to run on live data, because it intercepts all http calls
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let fleetSim = [

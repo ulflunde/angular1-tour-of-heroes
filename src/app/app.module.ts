@@ -1,9 +1,9 @@
+import { InMemoryWebApiModule }  from 'angular-in-memory-web-api';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
-
-// Imports for loading & configuring the in-memory web api
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { AppRoutingModule }      from './app-routing.module';
 import { AppComponent }          from './app.component';
 import { VesselDetailComponent } from './vessel-detail.component';
@@ -13,9 +13,9 @@ import { NhcpocapiComponent }    from './nhcpocapi.component';
 import { FleetDetailComponent }  from './fleet-detail.component';
 import { VesselService }         from './vessel.service';
 import { FleetService }          from "./fleet.service";
+import { InMemoryDataService }   from './in-memory-data.service';
 import { DocumentsComponent }    from './documents.component';
 import { PhotosComponent }       from './photos.component';
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     BrowserModule,
     FormsModule,
     HttpModule,
+    // InMemoryWebApiModule.forRoot(InMemoryDataService),  // comment in this for the mockup fleet to be displayed
     AppRoutingModule
   ],
   declarations: [
@@ -35,7 +36,9 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     DocumentsComponent,
     PhotosComponent
   ],
-  providers: [ VesselService, FleetService,
+  providers: [ VesselService,
+    FleetService,
+    InMemoryDataService,  // comment out this for the mockup fleet to be displayed
     Location,
     {
       provide: LocationStrategy,
