@@ -27,6 +27,13 @@
   background-color: #DDD;
   left: .1em;
 }
+
+
+/* in this demo, display only the first seven ships */
+li {   display: none;  }
+li#item0, li#item1, li#item2, li#item3, li#item4, li#item5, li#item6 {  display: block;  }
+
+
 .heroes .text {
   position: relative;
   top: -3px;
@@ -58,3 +65,4 @@ button.delete {
   background-color: gray !important;
   color:white;
 }
+

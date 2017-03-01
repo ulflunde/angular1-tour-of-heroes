@@ -28,12 +28,12 @@ export class NhcpocapiComponent implements OnInit {
 
   /*
   getFleet(): void {
-    this.fleetService.getFleet().then(ships => this.ships = ships);
+    this.fleetService.getFleet().then(ships => this.ships = ships);  // variant with nested Promises
   }
   */
 
   getFleet(): void {
-    this.fleetService.getFleet2().subscribe(ships => this.ships = ships);
+    this.fleetService.getFleet2().subscribe(ships => this.ships = ships);  // variant with Observable
   }
 
   onSelect(hero: FleetEntry): void {

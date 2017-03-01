@@ -15,7 +15,8 @@
   <button (click)="gotoDetail()">View Details</button>
 </div>
 <div>
-  <label class="lighttext">Add vessel:</label> <input #shipName />
+  <label class="lighttext">Add vessel:</label>
+  <input #shipName/>
   <button (click)="add(shipName.value); shipName.value=''">
     Add
   </button>

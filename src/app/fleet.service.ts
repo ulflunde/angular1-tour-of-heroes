@@ -46,4 +46,9 @@ export class FleetService {
         return res.json();
       });
   }
+
+  public getHero(id: number): Promise<FleetEntry> {
+    return this.getFleetMock()
+      .then(arrayelements => arrayelements.find(hero => hero.imoNumber === id));
+  }
 }

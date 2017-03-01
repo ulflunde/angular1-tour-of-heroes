@@ -1,5 +1,9 @@
-import { Component, Input } from '@angular/core';
-import {FleetEntry} from "./fleetEntry";
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
+import 'rxjs/add/operator/switchMap';
+import { FleetService } from './fleet.service';
+import { FleetEntry } from "./fleetEntry";
 
 @Component({
   selector: 'my-fleet-detail',
@@ -25,10 +29,33 @@ import {FleetEntry} from "./fleetEntry";
       <div><label>lohDays: </label>{{fleetEntry.lohDays}}</div>
       <div><label>lohBasis: </label>{{fleetEntry.lohBasis}}</div>
     </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
   `
 })
 
 export class FleetDetailComponent {
   @Input() fleetEntry: FleetEntry;
+
+  constructor(
+    private vesselService: FleetService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params
+      .switchMap((params: Params) => this.vesselService.getHero(+params['imoNumber']))
+      .subscribe(vessel => this.fleetEntry = vessel);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  save(): void {
+    this.VesselService.update(this.vessel)
+      .then(() => this.goBack());
+  }
 }
 

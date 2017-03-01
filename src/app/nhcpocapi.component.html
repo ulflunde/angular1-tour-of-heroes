@@ -1,7 +1,7 @@
 <div class="middle">
   <h2>My Vessels (from API)</h2>
   <ul class="heroes">
-    <li *ngFor="let vessel of ships" [class.selected]="vessel === selectedShip" (click)="onSelect(vessel)">
+    <li *ngFor="let vessel of ships; let counter = index" id="item{{counter}}" [class.selected]="vessel === selectedShip" (click)="onSelect(vessel)">
       <span class="badge">{{vessel.imoNumber}}</span>
       <span>{{vessel.objectName}}</span>
     </li>
@@ -13,7 +13,8 @@
     <button (click)="gotoDetail()">View Details</button>
   </div>
   <div>
-    <label class="lighttext">Add vessel:</label> <input #shipName />
+    <label class="lighttext">Add vessel:</label>
+    <input #shipName placeholder="ship name "/>
     <button (click)="add(shipName.value); shipName.value=''">
       Add
     </button>
