@@ -12,7 +12,7 @@ import {FleetEntry} from "./fleetEntry";
 
 @Injectable()
 export class FleetService {
-  private fleetUrl = 'http://nhcpocapi.azurewebsites.net/api/fleet';
+  private fleetUrl = '/api';
   private apiKey = '365289da-ff68-4d04-843b-0e0782e9be6d';
 /*
   constructor(private jsonp: Jsonp, private http :Http) {
@@ -22,7 +22,7 @@ export class FleetService {
   }
 
   getFleet(): Promise<FleetEntry[]> {
-    return Promise.resolve(this.getFleetMock());
+    return Promise.resolve(this.getFleetHttp());
   }
 
   private handleError(error: any): Promise<any> {
