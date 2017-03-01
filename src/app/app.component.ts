@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   <h1>{{title}}</h1>
   <nav>
     <a routerLink="/fleet">My fleet (mockup)</a>
-    <a routerLink="/api">My fleet (http)</a>
+    <a routerLink="/nhcapi">My fleet (http)</a>
     <a routerLink="/dashboard">Affected vessels</a>
     <a routerLink="/documents">Documents</a>
     <a routerLink="/map">Maps</a>

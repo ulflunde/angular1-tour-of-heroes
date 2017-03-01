@@ -4,7 +4,7 @@
 import {Injectable} from "@angular/core";
 import {URLSearchParams, Jsonp, Http} from "@angular/http";
 import "rxjs/add/operator/toPromise";
-//import {FLEET_ENTRIES} from "./mock-fleet";
+import {FLEET_ENTRIES} from "./mock-fleet";
 import {FleetEntry} from "./fleetEntry";
 
 @Injectable()
@@ -16,7 +16,7 @@ export class FleetService {
   }
 
   getFleet(): Promise<FleetEntry[]> {
-    return Promise.resolve(this.getFleetHttp());
+    return Promise.resolve(this.getFleetMock());
   }
 
   private handleError(error: any): Promise<any> {
@@ -24,11 +24,9 @@ export class FleetService {
     return Promise.reject(error.message || error);
   }
 
-  /*
   private getFleetMock(): Promise<FleetEntry[]> {
     return Promise.resolve(FLEET_ENTRIES);
   }
-  */
 
   private getFleetHttp(): Promise<FleetEntry[]> {
     return this.http
@@ -38,6 +36,7 @@ export class FleetService {
       .catch(this.handleError);
   }
 
+  /*
   private getFleetJsonp(): Promise<FleetEntry[]> {
     let params = new URLSearchParams();
 
@@ -50,4 +49,5 @@ export class FleetService {
       .then(response => <FleetEntry[]> response.json()[1])
       .catch(this.handleError);
   }
+  */
 }

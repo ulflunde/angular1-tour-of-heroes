@@ -15,6 +15,8 @@ import { NhcpocapiComponent }    from './nhcpocapi.component';
 import { FleetDetailComponent }  from './fleet-detail.component';
 import { VesselService }         from './vessel.service';
 import { FleetService }          from "./fleet.service";
+import { DocumentsComponent }    from './documents.component';
+import { PhotosComponent }       from './photos.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { FleetService }          from "./fleet.service";
     VesselDetailComponent,
     FleetComponent,
     FleetDetailComponent,
-    NhcpocapiComponent
+    NhcpocapiComponent,
+    DocumentsComponent,
+    PhotosComponent
   ],
   providers: [ VesselService, FleetService ],
   bootstrap: [ AppComponent ]
