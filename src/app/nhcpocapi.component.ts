@@ -26,8 +26,14 @@ export class NhcpocapiComponent implements OnInit {
     this.getFleet();
   }
 
+  /*
   getFleet(): void {
     this.fleetService.getFleet().then(ships => this.ships = ships);
+  }
+  */
+
+  getFleet(): void {
+    this.fleetService.getFleet2().subscribe(ships => this.ships = ships);
   }
 
   onSelect(hero: FleetEntry): void {

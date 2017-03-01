@@ -2,10 +2,12 @@
  * Created by E214595 on 28.02.2017.
  */
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Http, Response} from "@angular/http";
 import "rxjs/add/operator/toPromise";
+import 'rxjs/Rx';
 import {FLEET_ENTRIES} from "./mock-fleet";
 import {FleetEntry} from "./fleetEntry";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class FleetService {
@@ -15,9 +17,10 @@ export class FleetService {
   constructor(private http :Http) {
   }
 
+  /*
   getFleet(): Promise<FleetEntry[]> {
     return Promise.resolve(this.getFleetHttp());
-  }
+  }*/
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
@@ -28,10 +31,19 @@ export class FleetService {
     return Promise.resolve(FLEET_ENTRIES);
   }
 
-  private getFleetHttp(): Promise<FleetEntry[]> {
-    return this.http.get(this.fleetUrl + '/api/fleet?apikey=' + this.apiKey)
+  public getFleetHttp(): Promise<FleetEntry[]> {
+    return this.http.get(this.fleetUrl + '/fleet?apikey=' + this.apiKey)
       .toPromise()
       .then(response => response.json().data as FleetEntry[])
       .catch(this.handleError);
+  }
+
+  public getFleet2(): Observable<any> {
+    return this.http
+      .get(this.fleetUrl + '/fleet?apikey=' + this.apiKey, [])
+      .map((res: Response) => {
+      // debugger;  // sjekk her hvis du ikke får ut data
+        return res.json();
+      });
   }
 }

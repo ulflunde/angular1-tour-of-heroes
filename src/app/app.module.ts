@@ -4,8 +4,6 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule }  from 'angular-in-memory-web-api';
-import { InMemoryDataService }   from './in-memory-data.service';
 import { AppRoutingModule }      from './app-routing.module';
 import { AppComponent }          from './app.component';
 import { VesselDetailComponent } from './vessel-detail.component';
@@ -17,6 +15,7 @@ import { VesselService }         from './vessel.service';
 import { FleetService }          from "./fleet.service";
 import { DocumentsComponent }    from './documents.component';
 import { PhotosComponent }       from './photos.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { PhotosComponent }       from './photos.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [
@@ -37,7 +35,12 @@ import { PhotosComponent }       from './photos.component';
     DocumentsComponent,
     PhotosComponent
   ],
-  providers: [ VesselService, FleetService ],
+  providers: [ VesselService, FleetService,
+    Location,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }],
   bootstrap: [ AppComponent ]
 })
 
