@@ -51,4 +51,22 @@ export class FleetService {
     return this.getFleetMock()
       .then(arrayelements => arrayelements.find(hero => hero.imoNumber === id));
   }
+
+
+  update(vessel: FleetEntry): Promise<FleetEntry> {
+    // we can't update the data in INS2000
+    return Promise.resolve(vessel);
+  }
+
+
+  create(name: string): Promise<FleetEntry> {
+    // we can't add data to INS2000
+    return Promise.resolve(null);
+  }
+
+
+  delete(id: number): Promise<void> {
+    // we can't delete data from INS2000
+    return;
+  }
 }
